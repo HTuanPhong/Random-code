@@ -1,0 +1,67 @@
+Tóm đề:
+Nhập vào 2 chuỗi s, t trong đó
+s là chuỗi có dấu sao '*'
+t là chuỗi cần kiểm tra
+Yêu cầu:
+Viết hàm kiểm tra xem liệu chuỗi đại diện s có khớp với chuỗi t không
+===========================================================================================================
+
+DISCLAIMER: chỉ nên đọc file này khi đã giải xong bài hoặc quá bí. Tránh việc phụ thuộc vào đáp án khi code
+
+===========================================================================================================
+Ý tưởng:
+Qua đề bài ta biết được sẽ có 3 trường hợp của s mà ta cần chú ý tới
+TH1: chuỗi bắt đầu bằng 1 chuỗi
+TH2: chuỗi kết thúc bằng 1 chuỗi
+TH3: chuỗi chứa 1 chuỗi ở giữa
+
+Ta có thể xác định s rơi vào trường hợp nào thông qua kiểm tra xem phần tử đầu tiên và cuối cùng của s có chứa dấu '*' hay không
+Nhưng vì s có thể có nhiều trường hợp (VD: s = "the*quick*fox") nên ta cần phải kiểm tra cho nhiều trường hợp đó
+Do đó, việc đầu tiên bạn nên làm là tách chuỗi s ra thành các phần ngăn cách bởi dấu '*' cho tiện xử lí
+
+Sau đó bạn sẽ cần tìm cách để kiểm tra xem liệu các phần của s có nằm trong t hay không
+Bạn có thể làm điều này bằng cách kiểm tra từng đoạn của t xem có phần nào của s không
+Lúc này thì bạn chỉ cần tìm logic để xét 3 TH sao cho hợp lý thui
+
+Hướng giải:
+TH1:
+Bạn có thể kiểm tra xem chuỗi s có trường hợp này hay ko với điều kiện kiểm tra xem ký tự đầu tiên có phải là '*' hay không
+Nếu không thì chuỗi s có TH1
+Lúc này bạn chỉ cần kiểm tra liệu phần đầu tiên của chuỗi s có nằm ở ngay đầu của chuỗi t hay không và trả về False nếu không
+
+TH2:
+Tương tự TH1 nhưng thay vì ký tự đầu thì là ký tự cuối
+Xử lý giống TH1
+Lưu ý các trường hợp truy cập mảng trái phép ( s[i] , i < 0 || i > độ dài(s) )
+
+TH3:
+Với trường hợp này, có thể chuỗi s sẽ có nhiều phần nằm giữa và sẽ yêu cầu xét các chuỗi này trong t theo đúng thứ tự
+Do đó, bạn sẽ cần tìm cách kiểm tra tuần tự các phần của s có nằm trong t không
+Bạn có thể làm điều này với 2 vòng lặp, vòng ngoài sẽ duyệt các ký tự của t và vòng trong duyệt các ký tự của s
+Lúc này bạn chỉ cần duyệt tuần tự cho đến khi đủ các phần của s
+khi duyệt tìm thấy một phần của s bạn cũng nên làm thao thác i += độ dài của chuỗi đó để tránh dùng ký tự của phần trước để duyệt cho phần sau
+Sau khi duyệt xong, nếu không thể tìm thấy đủ các phần của s thì trả về false
+
+Còn lại trả về True
+
+pseudo code:
+int strmatch(char s[], char t[]){
+    tạo mảng 2 chiều lưu từng phần riêng của s
+    tách từng phần riêng của s rồi lưu vào mảng mới tạo
+
+    kiểm tra TH1 nếu s[0] != '*', nếu sai trả về 0
+
+    kiểm tra TH2 nếu s[phần tử cuối] != '*', nếu sai trả về 0
+
+    Kiểm tra TH3 cho tất cả các phần của s theo thứ tự,
+    đếm xem có tìm được bao nhiêu phần của s trong t theo thứ tự
+    nếu số phần tìm được < số phần của s, trả về 0
+
+    return 1
+}
+
+Lưu ý:
+Khi code bạn nhớ để chú ý đến việc truy cập phần tử trái phép khi kiểm tra mảng, vd: s[i] trong đó i < 0 || i >= len(s)
+File kiểm thử không kiểm tra được việc này nhưng bạn sẽ bị trừ điểm khi đi thi
+
+ps - Nếu muốn xin code mẫu thì hãy liên hệ với tác giả problem sau khi bạn đã giải xong :v

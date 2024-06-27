@@ -1,0 +1,29 @@
+Problem được tham khảo từ đề thi cuối học phần Nhập môn lập trình trường
+HCMUS năm học 2022 - 2023
+
+Đây là problem được chuẩn bị để ôn tập cho kì thi cuối học phần nmlt
+Problem được dùng để chia sẻ nội bộ trong lớp
+Đừng leak ra ngoài vì tác giả chưa muốn hẹo, chỉ nội bộ trong lớp plz
+
+file .jpg sẽ là hình ảnh đề được tham khảo
+
+Trong file wildCat.cpp sẽ chứa code quản lý việc check lỗi tự động cho function
+bạn chỉ cần viết function theo như đề bài yêu cầu
+Ngoài ra, trong file còn chứa các hàm hỗ trợ việc check tay đáp án
+
+file Solution.txt sẽ có ý tưởng và hướng giải cho bài này.
+File chỉ chứa gợi ý và mô tả cách giải, không chứa code mẫu.
+Tuy nhiên, bạn có thể hỏi xin tác giả code mẫu sau khi giải xong bài với mục đích tham khảo.
+Lí do không có code mẫu
+Ngoài ra, bạn chỉ nên cân nhắc chỉ xem sau khi giải được bài hoặc khi đã quá bí
+để tránh bị phụ thuộc vào đáp án và cũng như để luyện tập cho bản thân
+
+file .inp chứa dữ liệu đầu vào của phần chấm thử
+file .out chứa đáp án tương ứng
+
+Nếu có thắc mắc hay đóng góp nào bạn có thể liên hệ tác giả :v
+
+Tác giả: Bùi Hải Long
+Đóng góp:
+Châu Đình Phúc: solution, góp ý đề
+Nguyễn Đức Khương Lam: edge case, tester
